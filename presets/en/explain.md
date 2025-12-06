@@ -1,67 +1,55 @@
-You help understand code quickly and clearly.
+Explain code in an easy-to-understand way.
 
-**Your task**: Explain how this code works in plain language.
+## Usage
+- `/explain` - Overall project overview
+- `/explain [filename]` - Explain specific file
+- `/explain [function/concept]` - Explain specific part
 
-## How to Use
-- `/explain` → I'll give you an overview of the whole project
-- `/explain [filename]` → I'll explain that specific file
-- `/explain [function/concept]` → I'll explain that specific thing
-
-## For Whole Project Overview
+## Full Project Explanation
 
 ```
-## What This Project Does
-[2-3 sentence summary anyone can understand]
+Purpose: [What this project does]
 
-## How It's Organized
-[Simple folder structure with explanations]
+Structure:
 /src
-  /components  → UI pieces
-  /utils       → Helper functions
-  ...
+  /components - [Role]
+  /utils - [Role]
 
-## How to Run It
-[Step by step commands]
+Execution: [Installation and run instructions]
 
-## Key Files to Know
-- [file1] → Does X
-- [file2] → Does Y
+Key Files:
+- [file1]: [Role]
+- [file2]: [Role]
 
-## Main Flow
-[How data/actions flow through the app]
-User clicks → Component calls → API responds → UI updates
+Data Flow:
+[User input - Processing - Output]
 ```
 
-## For Specific File/Function
+## File/Function Explanation
 
 ```
-## What This Does
-[Simple explanation]
+Role: [What it does]
 
-## How It Works
-[Step-by-step breakdown]
-1. First it...
-2. Then it...
-3. Finally it...
+Operation:
+1. [Step 1]
+2. [Step 2]
+3. [Step 3]
 
-## Inputs
-- [param1]: what it is and why
+Input: [Parameters and purpose]
+Output: [Return value]
 
-## Outputs
-- What it returns/does
+Relationships:
+- Called by: [Where it's used]
+- Calls: [What it uses]
 
-## Connected To
-- Called by: [what uses this]
-- Calls: [what this uses]
-
-## Example
+Example:
 [Simple usage example]
 ```
 
-## Guidelines
-- No jargon - explain like I'm new to this
+## Principles
+- Use simple language
+- Keep it concise, focus on essentials
 - Use analogies when helpful
-- Point out the important parts
-- Skip the obvious stuff
+- Skip the obvious
 
-💡 New to a codebase? Run `/explain` first to get oriented.
+Usage: `/explain` or `/explain src/auth.js`

@@ -1,60 +1,52 @@
-You help make slow code fast.
+Find and fix performance issues.
 
-**Your task**: Find performance problems and fix them.
+## Usage
+- `/optimize` - Full scan
+- `/optimize [filename]` - Analyze specific file
+- `/optimize [description]` - Solve specific problem
 
-## How to Use
-- `/optimize` → I'll find slow parts of your code
-- `/optimize [filename]` → I'll focus on that file
-- `/optimize [describe issue]` → I'll address that specific problem
+## Issues to Find
 
-## Step 1: Find Slow Code
-Look for common performance issues:
+**Algorithm**
+- Nested loops (O(n²))
+- I/O operations in loops
+- Unnecessary recalculation
+- Inefficient data structures
 
-**Slow Operations**
-- Loops inside loops (O(n²))
-- Reading files or making API calls inside loops
-- Processing data that could be cached
-- Loading everything when only some is needed
+**Memory**
+- Memory leaks
+- Excessive memory usage
+- Unnecessary object creation
 
-**Memory Issues**
-- Storing huge lists when not needed
-- Not cleaning up after yourself
-- Creating objects in loops unnecessarily
-
-**Network Issues**
-- Too many API calls
+**Network**
+- Excessive API calls
 - Fetching more data than needed
-- Not using caching
+- Missing caching
 
-## Step 2: Show the Problem
+## Output Format
 
 ```
-## Slow Code Found
-**File**: [filename:line]
+file:line
 
-### Current Code
-[Show the slow code]
+Problem: [What's slow]
 
-### Problem
-[Explain why it's slow in simple terms]
+Current:
+[Problem code]
 
-### Faster Version
-[Show the optimized code]
+Optimized:
+[Improved code]
 
-### Expected Improvement
-[e.g., "10x faster" or "Uses 90% less memory"]
+Impact: [Expected performance gain]
 ```
 
-## Step 3: Prioritize
-Focus on:
-1. Things users notice (slow page loads, laggy UI)
-2. Things that run often (every request, every click)
-3. Things that cost money (database queries, API calls)
+## Priority
+1. User perception (page loading, UI responsiveness)
+2. Execution frequency (every request, every click)
+3. Cost (DB queries, API calls)
 
-## Guidelines
-- Fix big problems first
-- Measure before and after when possible
-- Don't sacrifice readability for tiny gains
-- Sometimes slow code is fine if it runs rarely
+## Principles
+- Measurable improvements
+- Maintain readability
+- Focus on real impact
 
-💡 Run `/optimize` before your app goes live to catch issues early.
+Usage: `/optimize` or `/optimize src/api.js`

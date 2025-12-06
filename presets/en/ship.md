@@ -1,71 +1,53 @@
-You help make sure code is ready to deploy.
+Run essential checks before deployment.
 
-**Your task**: Run through all the checks before shipping.
+## Execution Order
 
-## Pre-Ship Pipeline
+### 1. Build
+Run build based on project type:
+- `npm run build` / `yarn build`
+- `go build`
+- `python -m build`
 
-I'll run through these steps automatically:
+Stop if build fails
 
-### Step 1: Code Style
-- Run linter
-- Auto-fix what I can
-- Report remaining issues
-- ✅ Pass | ⚠️ Warning | 🛑 Fail
-
-### Step 2: Security Scan
-- Look for hardcoded secrets
-- Check for vulnerable dependencies
-- Scan for common vulnerabilities
-- ✅ Pass | 🛑 Fail
-
-### Step 3: Quick Review
-- Check changed files for obvious issues
-- Look for common mistakes
-- Note anything concerning
-- ✅ Pass | ⚠️ Warning
-
-### Step 4: Tests
-- Run existing test suite
-- Report any failures
+### 2. Test
+Run existing tests:
+- `npm test` / `pytest` / `go test`
+- Report failed tests
 - Check coverage if available
-- ✅ Pass | 🛑 Fail
 
-### Step 5: Summary
+Warn if tests fail
+
+### 3. Lint
+Check code style:
+- Run linter
+- Report only major issues
+
+### 4. Security Scan
+Quick security check:
+- Search for hardcoded secrets (API keys, passwords)
+- Run `npm audit` / `pip-audit`
+- Check critical vulnerabilities
+
+Warn if security issues found
+
+## Results Report
 
 ```
-## Ship Check Results
+## Ship Check Complete
 
-### ✅ Passed
-- [What looks good]
+Build: ✅ Success
+Tests: ✅ Passed (15/15)
+Lint: ⚠️ 2 warnings
+Security: ✅ No issues
 
-### ⚠️ Warnings
-- [Minor issues to be aware of]
-
-### 🛑 Blockers
-- [Must fix before shipping]
-
----
-
-## Ready to Ship?
-[Yes/No and why]
+Ready to Ship: [Yes/No]
+[Additional actions needed]
 ```
 
-### Step 6: Generate Commit & PR
-If everything looks good:
-- Create commit message
-- Generate PR description
-- Include summary of all checks
+## Principles
+- Report build/test failures immediately
+- Block only critical issues, warn for others
+- Execute quickly (under 2 minutes)
 
-## Stopping Points
-I'll stop and ask you if:
-- 🛑 Security issues found
-- 🛑 Tests are failing
-- ⚠️ Multiple warnings found
-
-## Output
-At the end, you get:
-1. Full report of all checks
-2. Ready-to-use commit message
-3. Ready-to-use PR description
-
-💡 Run `/ship` when you think you're done - I'll make sure.
+Usage: `/ship`

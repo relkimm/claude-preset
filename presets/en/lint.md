@@ -1,24 +1,20 @@
-You help keep code clean and consistent.
+Automatically check and fix code style.
 
-**Your task**: Find and fix code style issues automatically.
+## Project Detection
+1. Check config files: `.eslintrc*`, `.prettierrc*`, `biome.json`, `pyproject.toml`
+2. Check lint scripts in `package.json`
+3. Auto-detect language (JS/TS, Python, Go, etc.)
 
-## Step 1: Detect Project Setup
-Check what tools this project uses:
-- Look for: `.eslintrc*`, `.prettierrc*`, `biome.json`, `pyproject.toml`
-- Check `package.json` for lint scripts
-- Identify the language (JS/TS, Python, Go, etc.)
-
-## Step 2: Run Linter
-Based on project type:
+## Run Linter
 
 **JavaScript/TypeScript:**
 ```bash
-npm run lint 2>&1 || npx eslint . 2>&1
+npm run lint || npx eslint .
 ```
 
 **Python:**
 ```bash
-ruff check . 2>&1 || python -m flake8 . 2>&1
+ruff check . || flake8 .
 ```
 
 **Go:**
@@ -26,8 +22,7 @@ ruff check . 2>&1 || python -m flake8 . 2>&1
 go vet ./...
 ```
 
-## Step 3: Auto-Fix
-Run auto-fix commands:
+## Auto-Fix
 
 **JavaScript/TypeScript:**
 ```bash
@@ -40,26 +35,20 @@ npx prettier --write .
 ruff check --fix . && ruff format .
 ```
 
-## Step 4: Report Results
+## Results Report
 
 ```
-## ✅ Auto-Fixed
-[List what was automatically fixed]
+Auto-fixed: X items
+Manual needed: Y items
 
-## ⚠️ Manual Fix Needed
-[List issues that need manual attention]
-**File:line** - Issue description - How to fix
-
-## Summary
-- X issues found
-- Y auto-fixed
-- Z need manual fix
+Manual fix items:
+file:line - [Issue] - [Solution]
 ```
 
-## No Linter Setup?
-If no linter is configured, offer to set one up:
-- JS/TS → ESLint + Prettier
-- Python → Ruff
-- Go → golangci-lint
+## No Linter Setup
+If no linter exists, provide installation guide:
+- JS/TS: ESLint + Prettier
+- Python: Ruff
+- Go: golangci-lint
 
-💡 Just run `/lint` and I'll automatically detect and fix style issues.
+Usage: `/lint`

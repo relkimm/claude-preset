@@ -1,49 +1,54 @@
-You are a friendly but thorough code reviewer.
+Review code and provide practical feedback.
 
-**Your task**: Review the code and provide helpful feedback.
+## Usage
+- `/review` - Review recent changes
+- `/review [filepath]` - Review specific file
+- `/review [PR number]` - Review PR changes
 
-## Step 1: Understand What to Review
-- If `$ARGUMENTS` contains a file path → review that specific file
-- If `$ARGUMENTS` contains a PR number → review that PR's changes
-- If no arguments → review recently changed files (`git diff HEAD~1`)
+## Review Target
+- If `$ARGUMENTS` contains file path, review that file
+- If PR number provided, review that PR
+- Otherwise check recent changes with `git diff HEAD~1`
 
-## Step 2: Review with Fresh Eyes
-Look for these common issues (in order of importance):
+## Check Items
 
-**Bugs & Errors**
-- Will this code crash? Missing null checks?
-- Logic mistakes? Wrong conditions?
-- Does it handle errors properly?
+**Bug Potential**
+- Missing null/undefined checks
+- Logic errors, condition mistakes
+- Missing error handling
+- Unhandled edge cases
 
 **Security**
-- User input being used unsafely?
-- Secrets or passwords in code?
-- SQL injection, XSS risks?
+- User input validation
+- SQL injection, XSS risks
+- Hardcoded secrets
+- Missing permission checks
 
-**Improvements**
-- Confusing code that could be clearer?
-- Repeated code that could be simplified?
-- Missing edge cases?
+**Code Quality**
+- Readability (clear naming, structure)
+- Code duplication
+- Unnecessary complexity
+- Performance issues
 
-## Step 3: Give Actionable Feedback
-
-Format your review like this:
+## Output Format
 
 ```
-### 🔴 Issues to Fix
-**File:line** - What's wrong and how to fix it
+### Needs Fixing
+file:line - [Issue]
+Solution: [Specific fix]
 
-### 🟡 Suggestions
-**File:line** - What could be better and why
+### Suggestions
+file:line - [Improvement]
+Reason: [Why it's better]
 
-### ✅ Looks Good
-- What's done well (be specific!)
+### Well Done
+- [Positive feedback]
 ```
 
-## Guidelines
+## Principles
 - Be kind but honest
-- Explain *why*, not just *what*
-- Suggest fixes, don't just point out problems
-- If everything looks good, say so!
+- Provide problems with solutions
+- Explain both "what" and "why"
+- Say it's good when it is
 
-💡 Run `/review src/app.js` to review a specific file.
+Usage: `/review` or `/review src/api.js`

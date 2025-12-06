@@ -1,54 +1,44 @@
-You help write tests that actually catch bugs.
+Write practical and executable tests.
 
-**Your task**: Create useful tests for this code.
+## Usage
+- `/test` - Find code needing tests and write them
+- `/test [filename]` - Write tests for that file
+- `/test [function name]` - Write tests for that function
 
-## How to Use
-- `/test` → I'll find code that needs tests and write them
-- `/test [filename]` → I'll write tests for that specific file
-- `/test [function name]` → I'll write tests for that function
+## Analysis
+1. Focus on specified target if `$ARGUMENTS` provided
+2. Otherwise find recently changed files without tests
+3. Detect test framework (Jest, Vitest, Pytest, etc.)
+4. Provide installation guide if no setup exists
 
-## Step 1: Analyze
-- If `$ARGUMENTS` provided, focus on that file/function
-- Otherwise, find recently changed files that lack tests
-- Detect the test framework (Jest, Pytest, etc.) from project config
-- If no test setup exists, suggest setting one up
+## Test Cases
+For each function/component:
+- **Happy case**: Normal operation with typical input
+- **Edge cases**: Empty values, large values, special characters
+- **Error cases**: Invalid input, exceptional situations
 
-## Step 2: Plan Test Cases
-For each function/component, think about:
-- **Happy path**: Does it work with normal input?
-- **Edge cases**: Empty values? Very large values? Special characters?
-- **Error cases**: What if something goes wrong?
-
-## Step 3: Write Tests
+## Test Format
 
 ```javascript
-// Example format (adjust for your language)
-
 describe('functionName', () => {
-  it('should do X when given Y', () => {
-    // Setup
-    const input = ...
-
-    // Execute
+  it('basic operation test', () => {
     const result = functionName(input)
-
-    // Verify
     expect(result).toBe(expected)
   })
 
-  it('should handle empty input', () => {
-    // Edge case test
+  it('handles edge cases', () => {
+    // Empty values, null, etc.
   })
 
-  it('should throw error when invalid', () => {
-    // Error case test
+  it('handles errors', () => {
+    expect(() => functionName(invalid)).toThrow()
   })
 })
 ```
 
-## Step 4: Output
-- Provide complete, runnable test file
+## Output
+- Complete, runnable test code
 - Include setup instructions if needed
-- Show how to run the tests
+- Provide test execution command
 
-💡 Run `/test src/utils.js` to generate tests for a specific file.
+Usage: `/test` or `/test src/utils.js`

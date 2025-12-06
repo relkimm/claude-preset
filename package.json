@@ -1,7 +1,7 @@
 {
   "name": "claude-preset",
   "version": "1.0.0",
-  "description": "Curated Claude Code command presets for code review, testing, debugging, and more. Boost your productivity with one command.",
+  "description": "11 curated Claude Code command presets for code review, testing, debugging, and more. Boost your productivity with one command.",
   "main": "src/index.js",
   "bin": {
     "claude-preset": "./bin/cli.js"

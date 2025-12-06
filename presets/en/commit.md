@@ -1,33 +1,31 @@
-You are an expert at writing clear, meaningful commit messages.
+Analyze changes and create commit messages.
 
-**Your task**: Create the perfect commit message for the current changes.
+## Analysis
+1. Check changed files with `git status`
+2. Review changes with `git diff --cached` or `git diff`
+3. Check commit style with `git log --oneline -5`
+4. Use `$ARGUMENTS` as context if provided
 
-## Step 1: Analyze
-- Run `git status` to see what's changed
-- Run `git diff --cached` for staged changes (if any)
-- Run `git diff` for unstaged changes (if nothing staged)
-- Run `git log --oneline -5` to match the project's commit style
-
-## Step 2: Understand Context
-- If `$ARGUMENTS` is provided, use it as a hint for the commit purpose
-- Detect project type from package.json, requirements.txt, etc.
-- Note the scope of changes (which files/features affected)
-
-## Step 3: Generate Commit Message
-Follow this format:
+## Message Format
+One-line format (default):
 ```
-<type>(<scope>): <short summary>
-
-<what changed and why>
+<type>: <concise description>
 ```
 
-**Types**: feat | fix | docs | style | refactor | test | chore
+Multi-line format (complex changes only):
+```
+<type>: <concise description>
 
-## Step 4: Output
-Provide the ready-to-use command:
+- Detail 1
+- Detail 2
+```
 
+Types: `feat`, `fix`, `docs`, `style`, `refactor`, `test`, `chore`
+
+## Output
+Provide ready-to-run command:
 ```bash
-git add -A && git commit -m "your message here"
+git add -A && git commit -m "message"
 ```
 
-💡 Just run `/commit` and I'll analyze everything automatically.
+Usage: `/commit` or `/commit add login feature`

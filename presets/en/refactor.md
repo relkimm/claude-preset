@@ -1,55 +1,49 @@
-You help make messy code clean and organized.
+Make code cleaner and more maintainable.
 
-**Your task**: Find and improve code that could be better.
+## Usage
+- `/refactor` - Scan entire project
+- `/refactor [filename]` - Analyze specific file
+- `/refactor [description]` - Address specific issue
 
-## How to Use
-- `/refactor` → I'll scan and suggest improvements
-- `/refactor [filename]` → I'll focus on that file
-- `/refactor [describe issue]` → I'll address that specific concern
+## Issues to Find
 
-## Step 1: Find Problem Areas
-Look for these "code smells":
+**Code Quality**
+- Duplicated code (copy-paste)
+- Functions too long (30+ lines)
+- Complex nesting (if inside if inside if...)
+- Unclear variable/function names
+- Magic numbers (`if (status === 3)`)
 
-**High Priority**
-- Same code copy-pasted in multiple places
-- Functions longer than 30 lines
-- Deeply nested if/else (more than 3 levels)
+**Unnecessary Code**
+- Unused imports
+- Uncalled functions
+- Commented-out code
+- console.log, debugger statements
+
+**Structural Issues**
 - Functions doing too many things
+- Poor separation of concerns
+- Unnecessary complexity
 
-**Medium Priority**
-- Confusing variable names
-- Magic numbers (like `if (status === 3)`)
-- Dead code that's never used
-- Comments explaining confusing code (fix the code instead!)
-
-## Step 2: Suggest Improvements
-For each issue found:
+## Output Format
 
 ```
-## Location
-[file:line or function name]
+### [filename:line]
+Issue: [What's wrong]
 
-## Current Code
-[Show the problematic code]
+Current:
+[Problem code]
 
-## Suggested Improvement
-[Show the cleaner version]
+Improved:
+[Better code]
 
-## Why This Is Better
-[Brief explanation]
+Reason: [Why it's better]
 ```
 
-## Step 3: Refactoring Tips
-Common improvements:
-- **Extract Function**: Break big functions into smaller ones
-- **Rename**: Give things clearer names
-- **Remove Duplication**: Create reusable functions
-- **Simplify Conditions**: Use early returns, guard clauses
+## Principles
+- Keep behavior, improve structure
+- Change one thing at a time
+- Avoid over-abstraction
+- Prioritize readability
 
-## Guidelines
-- One change at a time
-- Don't change how the code works, just how it's organized
-- Start with the biggest impact improvements
-- Keep it simple - don't over-engineer!
-
-💡 Run `/refactor` and I'll find the messiest parts of your code.
+Usage: `/refactor` or `/refactor src/utils.js`

@@ -1,39 +1,30 @@
-You help create professional pull request descriptions effortlessly.
+Generate PR descriptions automatically for the current branch.
 
-**Your task**: Generate a complete PR description for the current branch.
+## Information Gathering
+1. Check current branch with `git branch --show-current`
+2. Review commits with `git log main..HEAD --oneline` (try master if main doesn't exist)
+3. Check changed files with `git diff main..HEAD --stat`
+4. Use `$ARGUMENTS` as additional context if provided
 
-## Step 1: Gather Information
-- Run `git branch --show-current` to get current branch name
-- Run `git log main..HEAD --oneline` (try master if main fails)
-- Run `git diff main..HEAD --stat` to see changed files
-- If `$ARGUMENTS` provided, use it as context for the PR purpose
-
-## Step 2: Analyze Changes
-- What files were modified?
-- What's the main purpose of these changes?
-- Are there any breaking changes?
-
-## Step 3: Generate PR Description
+## PR Description Format
 
 ```markdown
-## Summary
-[2-3 sentences: what this PR does and why]
-
 ## Changes
-- [List key changes in bullet points]
-- [Group related changes together]
+[Explain the purpose of this PR in 2-3 sentences]
+
+## Key Updates
+- Change 1
+- Change 2
+- Change 3
 
 ## How to Test
-1. [Step-by-step testing instructions]
-2. [Anyone should be able to follow these]
-
-## Checklist
-- [ ] Code has been tested locally
-- [ ] No console errors or warnings
-- [ ] Ready for review
+1. Step 1
+2. Step 2
+3. Expected result
 ```
 
-## Step 4: Output
-Provide the description ready to paste into GitHub/GitLab.
+## Output
+- Provide markdown ready to paste into GitHub/GitLab
+- Auto-generate based on branch name and commit history
 
-💡 Just run `/pr` and I'll figure out everything from your commits.
+Usage: `/pr` or `/pr change API response format`

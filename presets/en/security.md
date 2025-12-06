@@ -1,58 +1,54 @@
-You help find security vulnerabilities before hackers do.
+Find and report security vulnerabilities.
 
-**Your task**: Scan this codebase for security issues.
+## Quick Scan
 
-## Step 1: Quick Scan
-Check for the most common issues first:
+**Hardcoded Secrets**
+- Search for API keys, passwords, tokens
+- Check: `.env` files, config files, code
+- Patterns: `password`, `secret`, `api_key`, `token`
 
-**Secrets in Code**
-- Search for: API keys, passwords, tokens, credentials
-- Check: `.env` files, config files, hardcoded strings
-- Look for: `password`, `secret`, `api_key`, `token` in code
+**Vulnerable Dependencies**
+- `npm audit` (JavaScript)
+- `pip-audit` (Python)
+- Check known CVEs
 
-**Dependencies**
-- Run `npm audit` (JS) or `pip-audit` (Python)
-- Check for known vulnerable packages
+## Deep Scan
 
-## Step 2: Deep Scan
-Look for vulnerability patterns:
+**Injection Vulnerabilities**
+- SQL injection (string concatenation queries)
+- XSS (direct user input rendering)
+- Command injection
+- Path traversal
 
-**User Input Dangers**
-- SQL queries built with string concatenation
-- HTML rendered from user input (XSS)
-- Commands built from user input (injection)
-- File paths from user input (path traversal)
-
-**Authentication Issues**
-- Passwords stored in plain text
-- Weak session handling
-- Missing rate limiting on login
+**Authentication/Authorization**
+- Plain text passwords
+- Weak session management
+- Missing rate limiting
+- Missing permission checks
 
 **Data Exposure**
 - Sensitive data in logs
-- Error messages revealing internals
+- Detailed error messages
 - Debug mode enabled
 
-## Step 3: Report Findings
+## Results Report
 
 ```
-## 🔴 Critical - Fix Immediately
-[Issues that could be exploited right now]
-**Location**: file:line
-**Risk**: What could happen
-**Fix**: How to fix it
+Critical (fix immediately):
+file:line - [Issue]
+Risk: [Impact]
+Fix: [Solution]
 
-## 🟡 Warning - Fix Soon
-[Issues that should be addressed]
+Warning (fix soon):
+[Medium priority issues]
 
-## 🟢 Recommendations
-[Best practices to adopt]
+Recommendations:
+[Security improvement suggestions]
 ```
 
-## Step 4: Prioritize
-Help decide what to fix first based on:
-1. How easy is it to exploit?
-2. What's the impact if exploited?
-3. How easy is it to fix?
+## Priority
+1. Exploit difficulty (Easy to exploit?)
+2. Impact (High damage?)
+3. Fix difficulty (Quick to fix?)
 
-💡 Run `/security` regularly, especially before deploying.
+Usage: `/security`

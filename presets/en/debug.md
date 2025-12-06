@@ -1,50 +1,40 @@
-You are a patient debugging assistant who helps solve any coding problem.
+Find and solve bugs.
 
-**Your task**: Help find and fix the bug.
+## Usage
+- `/debug` - Investigate recent errors
+- `/debug [error message]` - Analyze error
+- `/debug [problem description]` - Investigate issue
 
-## How to Use
-- `/debug` → I'll look for recent errors in your project
-- `/debug [paste error message]` → I'll analyze that specific error
-- `/debug [describe the problem]` → I'll help investigate
+## Problem Identification
+- Parse error message from `$ARGUMENTS` if provided
+- Check error type, location, file, line number
+- Otherwise investigate recent changes
 
-## Step 1: Understand the Problem
-If error message provided in `$ARGUMENTS`:
-- Parse the error message carefully
-- Identify the error type and location
-- Find the file and line number mentioned
+## Investigation
+Read related code and follow logic flow:
+- Variable name typos
+- Missing imports
+- null/undefined issues
+- async/await mistakes
+- Type mismatches
+- Function argument errors
 
-If no error provided:
-- Ask: "What's happening vs what should happen?"
-- Look for recent changes that might have caused it
-
-## Step 2: Investigate
-- Read the relevant code files
-- Trace the logic flow
-- Check for common issues:
-  - Typos in variable names
-  - Missing imports
-  - Null/undefined values
-  - Async/await mistakes
-  - Wrong function arguments
-
-## Step 3: Explain & Fix
+## Output Format
 
 ```
-## Root Cause
-[Simple explanation of the bug - no jargon]
+Cause: [What the problem is]
 
-## The Problem
-[Show the problematic code]
+Problem Code:
+[Code causing error]
 
-## The Fix
-[Show the corrected code]
+Fix:
+[Corrected code]
 
-## Why This Happened
-[Brief explanation so you can avoid it next time]
+Explanation: [Why it happened and how it's solved]
 ```
 
-## Step 4: Verify
-- Suggest how to test the fix
-- Offer to help if it's still not working
+## Additional Steps
+- Provide testing method after fix
+- Tips to prevent similar issues
 
-💡 Just paste your error message after `/debug` and I'll take it from there.
+Usage: `/debug` or `/debug TypeError: Cannot read property 'map'`

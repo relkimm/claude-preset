@@ -2,7 +2,7 @@
 
 > Supercharge your Claude Code workflow with production-ready command presets
 
-Install 12 curated, battle-tested command presets in seconds. No configuration needed.
+Install 11 curated, battle-tested command presets in seconds. No configuration needed.
 
 [![npm version](https://img.shields.io/npm/v/claude-preset.svg)](https://www.npmjs.com/package/claude-preset)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -11,7 +11,7 @@ Install 12 curated, battle-tested command presets in seconds. No configuration n
 
 Claude Code is powerful, but building effective prompts takes time. This package gives you:
 
-- **12 production-ready commands** optimized for real-world workflows
+- **11 production-ready commands** optimized for real-world workflows
 - **Zero configuration** - works out of the box
 - **Multilingual support** - English and Korean presets
 - **Consistent quality** - carefully crafted prompts that actually work
@@ -77,7 +77,7 @@ Scans for security vulnerabilities and best practices.
 ### Optimization
 
 #### `/refactor`
-Suggests refactoring opportunities for cleaner code.
+Suggests refactoring opportunities and removes dead code for cleaner codebase.
 ```bash
 /refactor src/legacy/
 ```
@@ -88,11 +88,6 @@ Analyzes and improves performance bottlenecks.
 /optimize src/components/DataTable.tsx
 ```
 
-#### `/cleanup`
-Identifies and removes dead code, unused imports, and obsolete patterns.
-```bash
-/cleanup
-```
 
 ### Documentation & Debugging
 
