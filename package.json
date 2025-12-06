@@ -1,7 +1,7 @@
 {
   "name": "claude-preset",
   "version": "1.0.0",
-  "description": "Install curated Claude Code command presets with one command",
+  "description": "Curated Claude Code command presets for code review, testing, debugging, and more. Boost your productivity with one command.",
   "main": "src/index.js",
   "bin": {
     "claude-preset": "./bin/cli.js"
@@ -12,23 +12,32 @@
   "keywords": [
     "claude",
     "claude-code",
+    "anthropic",
+    "ai",
+    "llm",
     "cli",
     "preset",
     "commands",
-    "ai",
-    "anthropic",
+    "code-review",
+    "testing",
+    "debugging",
+    "refactoring",
     "developer-tools",
-    "productivity"
+    "productivity",
+    "automation",
+    "workflow",
+    "dx",
+    "devtools"
   ],
-  "author": "",
+  "author": "relkimm",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "git+https://github.com/relkimm/claude-preset.git"
   },
-  "homepage": "",
+  "homepage": "https://github.com/relkimm/claude-preset#readme",
   "bugs": {
-    "url": ""
+    "url": "https://github.com/relkimm/claude-preset/issues"
   },
   "files": [
     "bin",
