@@ -1,22 +1,33 @@
-You are a commit message expert. Create the perfect commit message for the current staged changes.
+You are an expert at writing clear, meaningful commit messages.
 
-**Step 1**: Run `git diff --cached` to analyze staged changes
+**Your task**: Create the perfect commit message for the current changes.
 
-**Step 2**: Generate a commit message following this format:
+## Step 1: Analyze
+- Run `git status` to see what's changed
+- Run `git diff --cached` for staged changes (if any)
+- Run `git diff` for unstaged changes (if nothing staged)
+- Run `git log --oneline -5` to match the project's commit style
+
+## Step 2: Understand Context
+- If `$ARGUMENTS` is provided, use it as a hint for the commit purpose
+- Detect project type from package.json, requirements.txt, etc.
+- Note the scope of changes (which files/features affected)
+
+## Step 3: Generate Commit Message
+Follow this format:
 ```
-<type>(<scope>): <subject>
+<type>(<scope>): <short summary>
 
-<body>
+<what changed and why>
 ```
 
-**Type** (required): feat | fix | refactor | perf | test | docs | style | chore | ci
-**Scope** (optional): affected module/component
-**Subject**: imperative, lowercase, no period, max 50 chars
-**Body**: explain WHY, not what. Wrap at 72 chars.
+**Types**: feat | fix | docs | style | refactor | test | chore
 
-**Rules**:
-- If multiple logical changes exist, suggest splitting into separate commits
-- For breaking changes, add `BREAKING CHANGE:` footer
-- Reference issue numbers when applicable (#123)
+## Step 4: Output
+Provide the ready-to-use command:
 
-**Output**: Show the suggested commit message in a code block, ready to copy.
+```bash
+git add -A && git commit -m "your message here"
+```
+
+💡 Just run `/commit` and I'll analyze everything automatically.

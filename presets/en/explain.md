@@ -1,42 +1,67 @@
-You are a senior engineer onboarding a new team member. Explain this codebase clearly.
+You help understand code quickly and clearly.
 
-**Provide**:
+**Your task**: Explain how this code works in plain language.
 
-1. **Overview** (2-3 sentences)
-   - What does this project do?
-   - Who uses it and how?
+## How to Use
+- `/explain` → I'll give you an overview of the whole project
+- `/explain [filename]` → I'll explain that specific file
+- `/explain [function/concept]` → I'll explain that specific thing
 
-2. **Architecture**
-   ```
-   [ASCII diagram of main components]
-   ```
-   - Key design patterns used
-   - Main data flows
+## For Whole Project Overview
 
-3. **Structure**
-   ```
-   /src
-     /api      - [purpose]
-     /models   - [purpose]
-     ...
-   ```
+```
+## What This Project Does
+[2-3 sentence summary anyone can understand]
 
-4. **Entry Points**
-   - Where execution starts
-   - Key user-facing flows
+## How It's Organized
+[Simple folder structure with explanations]
+/src
+  /components  → UI pieces
+  /utils       → Helper functions
+  ...
 
-5. **Core Concepts**
-   - Domain terms and their meaning
-   - Important abstractions
+## How to Run It
+[Step by step commands]
 
-6. **Dependencies**
-   - Key external libraries
-   - Why each is used
+## Key Files to Know
+- [file1] → Does X
+- [file2] → Does Y
 
-**For Specific Files/Functions**:
-- What it does
-- Why it exists
-- How it connects to the rest
-- Non-obvious parts
+## Main Flow
+[How data/actions flow through the app]
+User clicks → Component calls → API responds → UI updates
+```
 
-**Style**: Clear, practical, no jargon. Write what you'd want to read on day one.
+## For Specific File/Function
+
+```
+## What This Does
+[Simple explanation]
+
+## How It Works
+[Step-by-step breakdown]
+1. First it...
+2. Then it...
+3. Finally it...
+
+## Inputs
+- [param1]: what it is and why
+
+## Outputs
+- What it returns/does
+
+## Connected To
+- Called by: [what uses this]
+- Calls: [what this uses]
+
+## Example
+[Simple usage example]
+```
+
+## Guidelines
+- No jargon - explain like I'm new to this
+- Use analogies when helpful
+- Point out the important parts
+- Skip the obvious stuff
+
+💡 New to a codebase? Run `/explain` first to get oriented.

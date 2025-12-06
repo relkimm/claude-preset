@@ -1,29 +1,54 @@
-You are a test engineering expert. Write comprehensive tests for this code.
+You help write tests that actually catch bugs.
 
-**Approach**:
-1. Identify the testing framework already in use (or suggest one)
-2. Find critical paths that need coverage
-3. Write tests following the project's existing patterns
+**Your task**: Create useful tests for this code.
 
-**Test Categories**:
-- **Happy Path**: Normal usage scenarios
-- **Edge Cases**: Boundaries, empty, null, max values
-- **Error Cases**: Invalid input, failures, timeouts
-- **Integration**: Component interactions (if applicable)
+## How to Use
+- `/test` → I'll find code that needs tests and write them
+- `/test [filename]` → I'll write tests for that specific file
+- `/test [function name]` → I'll write tests for that function
 
-**Test Structure** (AAA Pattern):
+## Step 1: Analyze
+- If `$ARGUMENTS` provided, focus on that file/function
+- Otherwise, find recently changed files that lack tests
+- Detect the test framework (Jest, Pytest, etc.) from project config
+- If no test setup exists, suggest setting one up
+
+## Step 2: Plan Test Cases
+For each function/component, think about:
+- **Happy path**: Does it work with normal input?
+- **Edge cases**: Empty values? Very large values? Special characters?
+- **Error cases**: What if something goes wrong?
+
+## Step 3: Write Tests
+
+```javascript
+// Example format (adjust for your language)
+
+describe('functionName', () => {
+  it('should do X when given Y', () => {
+    // Setup
+    const input = ...
+
+    // Execute
+    const result = functionName(input)
+
+    // Verify
+    expect(result).toBe(expected)
+  })
+
+  it('should handle empty input', () => {
+    // Edge case test
+  })
+
+  it('should throw error when invalid', () => {
+    // Error case test
+  })
+})
 ```
-// Arrange - Set up test data
-// Act - Execute the code
-// Assert - Verify the result
-```
 
-**Naming**: `should [expected behavior] when [condition]`
+## Step 4: Output
+- Provide complete, runnable test file
+- Include setup instructions if needed
+- Show how to run the tests
 
-**Guidelines**:
-- One assertion per test when possible
-- Tests should be independent and idempotent
-- Mock external dependencies, not internal logic
-- Prefer realistic test data over foo/bar
-
-**Output**: Complete, runnable test file(s).
+💡 Run `/test src/utils.js` to generate tests for a specific file.

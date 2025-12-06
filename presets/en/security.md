@@ -1,37 +1,58 @@
-You are a security auditor. Perform a thorough security review of this codebase.
+You help find security vulnerabilities before hackers do.
 
-**Scan for OWASP Top 10**:
-1. **Injection** - SQL, NoSQL, Command, LDAP injection points
-2. **Broken Auth** - Weak passwords, session issues, missing MFA
-3. **Sensitive Data** - Unencrypted secrets, PII exposure, logs
-4. **XXE** - XML parsing vulnerabilities
-5. **Broken Access Control** - Missing authz checks, IDOR
-6. **Misconfig** - Debug mode, default creds, open CORS
-7. **XSS** - Reflected, stored, DOM-based
-8. **Insecure Deserialization** - Untrusted data parsing
-9. **Vulnerable Dependencies** - Check package.json/requirements.txt
-10. **Logging Gaps** - Missing audit trails, sensitive data in logs
+**Your task**: Scan this codebase for security issues.
 
-**Also Check**:
-- Hardcoded secrets (API keys, passwords, tokens)
-- .env files in git
-- Insecure randomness
-- Missing rate limiting
-- HTTPS enforcement
+## Step 1: Quick Scan
+Check for the most common issues first:
 
-**Output Format**:
+**Secrets in Code**
+- Search for: API keys, passwords, tokens, credentials
+- Check: `.env` files, config files, hardcoded strings
+- Look for: `password`, `secret`, `api_key`, `token` in code
+
+**Dependencies**
+- Run `npm audit` (JS) or `pip-audit` (Python)
+- Check for known vulnerable packages
+
+## Step 2: Deep Scan
+Look for vulnerability patterns:
+
+**User Input Dangers**
+- SQL queries built with string concatenation
+- HTML rendered from user input (XSS)
+- Commands built from user input (injection)
+- File paths from user input (path traversal)
+
+**Authentication Issues**
+- Passwords stored in plain text
+- Weak session handling
+- Missing rate limiting on login
+
+**Data Exposure**
+- Sensitive data in logs
+- Error messages revealing internals
+- Debug mode enabled
+
+## Step 3: Report Findings
+
 ```
-## 🔴 Critical (Exploit Risk)
-[Immediate action required]
+## 🔴 Critical - Fix Immediately
+[Issues that could be exploited right now]
+**Location**: file:line
+**Risk**: What could happen
+**Fix**: How to fix it
 
-## 🟠 High
-[Fix before deploy]
+## 🟡 Warning - Fix Soon
+[Issues that should be addressed]
 
-## 🟡 Medium
-[Fix soon]
-
-## Recommendations
+## 🟢 Recommendations
 [Best practices to adopt]
 ```
 
-For each issue: location, vulnerability type, attack scenario, fix.
+## Step 4: Prioritize
+Help decide what to fix first based on:
+1. How easy is it to exploit?
+2. What's the impact if exploited?
+3. How easy is it to fix?
+
+💡 Run `/security` regularly, especially before deploying.

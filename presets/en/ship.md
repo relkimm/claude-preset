@@ -1,43 +1,71 @@
-You are a release engineer. Run the full pre-ship checklist before this code goes to production.
+You help make sure code is ready to deploy.
 
-**Pipeline Steps** (execute in order, stop on critical issues):
+**Your task**: Run through all the checks before shipping.
 
-## Step 1: Lint Check
-- Run linter and fix auto-fixable issues
-- Report any remaining issues
-- ✅ Continue if clean | ⚠️ Warn if minor issues | 🛑 Stop if errors
+## Pre-Ship Pipeline
 
-## Step 2: Security Scan
-- Check for hardcoded secrets
-- Scan for obvious vulnerabilities
-- ✅ Continue if clean | 🛑 Stop if any security issues
+I'll run through these steps automatically:
 
-## Step 3: Code Review
-- Quick review of changed files
-- Focus on logic errors and edge cases
-- ✅ Continue | ⚠️ Note concerns for PR
+### Step 1: Code Style
+- Run linter
+- Auto-fix what I can
+- Report remaining issues
+- ✅ Pass | ⚠️ Warning | 🛑 Fail
 
-## Step 4: Test Check
-- Run existing tests: `npm test` or equivalent
-- Report failures
-- ✅ Continue if passing | 🛑 Stop if failing
+### Step 2: Security Scan
+- Look for hardcoded secrets
+- Check for vulnerable dependencies
+- Scan for common vulnerabilities
+- ✅ Pass | 🛑 Fail
 
-## Step 5: Generate Commit
-- Create commit message for staged changes
-- Follow conventional commits format
+### Step 3: Quick Review
+- Check changed files for obvious issues
+- Look for common mistakes
+- Note anything concerning
+- ✅ Pass | ⚠️ Warning
 
-## Step 6: Generate PR Description
-- Create comprehensive PR description
-- Include all findings from above steps
+### Step 4: Tests
+- Run existing test suite
+- Report any failures
+- Check coverage if available
+- ✅ Pass | 🛑 Fail
+
+### Step 5: Summary
+
+```
+## Ship Check Results
+
+### ✅ Passed
+- [What looks good]
+
+### ⚠️ Warnings
+- [Minor issues to be aware of]
+
+### 🛑 Blockers
+- [Must fix before shipping]
 
 ---
 
-**Output at each step**:
-```
-[Step N] ✅ Passed | ⚠️ Warning | 🛑 Failed
-[Details]
+## Ready to Ship?
+[Yes/No and why]
 ```
 
-**Final Output**: Commit message + PR description ready to use.
+### Step 6: Generate Commit & PR
+If everything looks good:
+- Create commit message
+- Generate PR description
+- Include summary of all checks
 
-Ask before proceeding to commit/PR generation if any warnings were found.
+## Stopping Points
+I'll stop and ask you if:
+- 🛑 Security issues found
+- 🛑 Tests are failing
+- ⚠️ Multiple warnings found
+
+## Output
+At the end, you get:
+1. Full report of all checks
+2. Ready-to-use commit message
+3. Ready-to-use PR description
+
+💡 Run `/ship` when you think you're done - I'll make sure.

@@ -1,36 +1,39 @@
-You are a senior engineer creating a pull request. Generate a comprehensive PR description.
+You help create professional pull request descriptions effortlessly.
 
-**Step 1**: Gather context
-- Run `git log main..HEAD --oneline` to see all commits
-- Run `git diff main..HEAD --stat` to see file changes
-- Identify the base branch (main/master/develop)
+**Your task**: Generate a complete PR description for the current branch.
 
-**Step 2**: Generate PR description
+## Step 1: Gather Information
+- Run `git branch --show-current` to get current branch name
+- Run `git log main..HEAD --oneline` (try master if main fails)
+- Run `git diff main..HEAD --stat` to see changed files
+- If `$ARGUMENTS` provided, use it as context for the PR purpose
+
+## Step 2: Analyze Changes
+- What files were modified?
+- What's the main purpose of these changes?
+- Are there any breaking changes?
+
+## Step 3: Generate PR Description
 
 ```markdown
-## What
-[One-line summary of the change]
-
-## Why
-[Problem this solves or feature this enables]
-
-## How
-[Brief technical approach - key decisions made]
+## Summary
+[2-3 sentences: what this PR does and why]
 
 ## Changes
-- [Grouped list of meaningful changes]
+- [List key changes in bullet points]
+- [Group related changes together]
 
-## Testing
-- [ ] [Specific test scenarios to verify]
+## How to Test
+1. [Step-by-step testing instructions]
+2. [Anyone should be able to follow these]
 
-## Notes for Reviewers
-[Areas needing careful review, known limitations, follow-up items]
+## Checklist
+- [ ] Code has been tested locally
+- [ ] No console errors or warnings
+- [ ] Ready for review
 ```
 
-**Guidelines**:
-- Write for reviewers who don't have context
-- Highlight breaking changes prominently
-- Link related issues/docs
-- Keep it scannable - use bullets
+## Step 4: Output
+Provide the description ready to paste into GitHub/GitLab.
 
-**Output**: Ready-to-paste PR description.
+💡 Just run `/pr` and I'll figure out everything from your commits.
