@@ -1,0 +1,47 @@
+{
+  "name": "claude-preset",
+  "version": "1.0.0",
+  "description": "Install curated Claude Code command presets with one command",
+  "main": "src/index.js",
+  "bin": {
+    "claude-preset": "./bin/cli.js"
+  },
+  "scripts": {
+    "test": "node bin/cli.js"
+  },
+  "keywords": [
+    "claude",
+    "claude-code",
+    "cli",
+    "preset",
+    "commands",
+    "ai",
+    "anthropic",
+    "developer-tools",
+    "productivity"
+  ],
+  "author": "",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "homepage": "",
+  "bugs": {
+    "url": ""
+  },
+  "files": [
+    "bin",
+    "src",
+    "presets"
+  ],
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "fs-extra": "^11.2.0",
+    "inquirer": "^9.2.12"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "type": "module"
+}
