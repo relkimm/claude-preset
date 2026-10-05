@@ -1,8 +1,8 @@
 # claude-preset
 
-> Supercharge your Claude Code workflow with production-ready command presets
+> Workflow presets for Claude Code.
 
-Install 11 curated, battle-tested command presets in seconds. No configuration needed.
+Install 11 command presets for code review, testing, debugging, and shipping, in English or Korean.
 
 [![npm version](https://img.shields.io/npm/v/claude-preset.svg)](https://www.npmjs.com/package/claude-preset)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -171,8 +171,6 @@ We welcome contributions! To add a new preset:
 2. Follow the existing prompt structure
 3. Test with Claude Code
 4. Submit a PR
-
-See [CONTRIBUTING.md](CONTRIBUTING.md) for details.
 
 ## License
 
